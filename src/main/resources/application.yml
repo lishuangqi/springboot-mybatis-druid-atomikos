@@ -3,7 +3,6 @@ server:
 spring:
   datasource:
     type: com.alibaba.druid.pool.xa.DruidXADataSource
-    #driverClassName: com.mysql.cj.jdbc.Driver
     druid:
       bigdata:  #数据源1
         driverClassName: com.mysql.cj.jdbc.Driver
@@ -53,6 +52,30 @@ spring:
           #login-username: admin
           #login-password: admin
         filters: stat,wall,log4j2
+#      plat:  #数据源oracle
+#        driverClassName: oracle.jdbc.OracleDriver
+#        url: jdbc:oracle:thin:@192.168.100.233:1521:oracle
+#        username: qcs
+#        password: manager
+#        initialSize: 10
+#        maxActive: 100
+#        minIdle: 10
+#        maxWait: 60000
+#        poolPreparedStatements: true
+#        maxPoolPreparedStatementPerConnectionSize: 20
+#        timeBetweenEvictionRunsMillis: 60000
+#        minEvictableIdleTimeMillis: 300000
+#        validationQuery: SELECT 1 FROM DUAL
+#        validationQueryTimeout: 10000
+#        testWhileIdle: true
+#        testOnBorrow: false
+#        testOnReturn: false
+#        statViewServlet:
+#          enabled: true
+#          urlPattern: /druid/*
+#          #login-username: admin
+#          #login-password: admin
+#        filters: stat,wall,log4j2
     #jta相关参数配置
   jta:
     log-dir: classpath:tx-logs
@@ -90,6 +113,7 @@ mybatis-plus:
 
 logging:
   level:
-    root: INFO
+    root: info
+    com.atomikos: debug
   path: logs/
   file: atomikos.log

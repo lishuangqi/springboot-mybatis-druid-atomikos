@@ -33,6 +33,7 @@ public class TSysUserServiceImpl extends ServiceImpl<TSysUserDao, TSysUserEntity
 	@Override
 	@Transactional
 	public boolean save(TSysUserEntity entity) {
+//		int i = 1/0;
 		return super.save(entity);
 	}
 	

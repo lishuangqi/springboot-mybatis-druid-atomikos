@@ -54,6 +54,7 @@ public class TestController {
         InterfaceInfoEntity interfaceInfoEntity = new InterfaceInfoEntity();
         interfaceInfoEntity.setId(UuidUtil.generateUUID());
         interfaceInfoService.save(interfaceInfoEntity);
+//        int i =1/0;
         return "ok";
 
     }
@@ -68,6 +69,7 @@ public class TestController {
         tSysUserEntity.setLoginName("test");
         tSysUserEntity.setPasswd("test");
         tSysUserService.save(tSysUserEntity);
+//        int i =1/0;
         return "ok";
 
     }

@@ -21,6 +21,7 @@
         <mybatis-plus.version>3.1.0</mybatis-plus.version>
         <druid.version>1.1.10</druid.version>
         <fastjson.version>1.2.33</fastjson.version>
+        <mysql.version>6.0.6</mysql.version>
     </properties>
 
     <dependencies>
@@ -54,7 +55,15 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.oracle/ojdbc6 -->
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc6</artifactId>
+            <version>12.1.0.1-atlassian-hosted</version>
+        </dependency>
+
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>

@@ -8,10 +8,10 @@ import com.alibaba.druid.wall.WallFilter;
 import com.atomikos.icatch.jta.UserTransactionImp;
 import com.atomikos.icatch.jta.UserTransactionManager;
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
-import com.mysql.cj.jdbc.MysqlXADataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.jta.atomikos.AtomikosDataSourceBean;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
@@ -37,19 +37,27 @@ import java.util.Properties;
 @Configuration
 public class DynamicDataSourceConfig {
     public static final String basePackage ="spring.datasource.druid.";
+    @Value("${spring.datasource.type:com.alibaba.druid.pool.xa.DruidXADataSource}")
+    String xaDataSourceClassName;
 
     @Primary
     @Bean(name = "bigdataDataSource")
     public DataSource bigdataDataSource(Environment env) {
         String sourceName = "bigdata";
         Properties prop = build(env, basePackage+sourceName+".");
-        MysqlXADataSource mysqlXaDataSource = new MysqlXADataSource();
-        mysqlXaDataSource.setUrl(prop.getProperty("url"));
-        mysqlXaDataSource.setUser(prop.getProperty("username"));
-        mysqlXaDataSource.setPassword(prop.getProperty("password"));
+//        DruidXADataSource druidXADataSource = new DruidXADataSource();
+//        druidXADataSource.setUrl(prop.getProperty("url"));
+//        druidXADataSource.setUsername(prop.getProperty("username"));
+//        druidXADataSource.setPassword(prop.getProperty("password"));
+
+//        MysqlXADataSource mysqlXaDataSource = new MysqlXADataSource();
+//        mysqlXaDataSource.setUrl(prop.getProperty("url"));
+//        mysqlXaDataSource.setUser(prop.getProperty("username"));
+//        mysqlXaDataSource.setPassword(prop.getProperty("password"));
 
         AtomikosDataSourceBean xaDataSource = new AtomikosDataSourceBean();
-        xaDataSource.setXaDataSource(mysqlXaDataSource);
+//        xaDataSource.setXaDataSource(druidXADataSource);
+        xaDataSource.setXaDataSourceClassName(xaDataSourceClassName);
         xaDataSource.setUniqueResourceName(sourceName);
         xaDataSource.setPoolSize(5);
         xaDataSource.setXaProperties(prop);
@@ -60,13 +68,9 @@ public class DynamicDataSourceConfig {
     public DataSource platDataSource(Environment env) {
         String sourceName = "plat";
         Properties prop = build(env, basePackage+sourceName+".");
-        MysqlXADataSource mysqlXaDataSource = new MysqlXADataSource();
-        mysqlXaDataSource.setUrl(prop.getProperty("url"));
-        mysqlXaDataSource.setUser(prop.getProperty("username"));
-        mysqlXaDataSource.setPassword(prop.getProperty("password"));
 
         AtomikosDataSourceBean xaDataSource = new AtomikosDataSourceBean();
-        xaDataSource.setXaDataSource(mysqlXaDataSource);
+        xaDataSource.setXaDataSourceClassName(xaDataSourceClassName);
         xaDataSource.setUniqueResourceName(sourceName);
         xaDataSource.setPoolSize(5);
         xaDataSource.setXaProperties(prop);
