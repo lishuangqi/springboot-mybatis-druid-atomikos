@@ -6,9 +6,9 @@ spring:
     druid:
       bigdata:  #数据源1
         driverClassName: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://localhost:3316/bigdata?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+        url: jdbc:mysql://localhost:3306/adb1?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
         username: root
-        password: root
+        password: nick1215
         initialSize: 10
         maxActive: 100
         minIdle: 10
@@ -30,9 +30,9 @@ spring:
         filters: stat,wall,log4j2
       plat:  #数据源2
         driverClassName: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://localhost:3316/plat?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+        url: jdbc:mysql://localhost:3306/adb2?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
         username: root
-        password: root
+        password: nick1215
         initialSize: 10
         maxActive: 100
         minIdle: 10

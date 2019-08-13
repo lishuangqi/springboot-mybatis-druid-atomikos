@@ -1,11 +1,9 @@
 package com.wisesoft.plat.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.wisesoft.plat.entity.TSysUserEntity;
+import com.wisesoft.plat.entity.UserEntity;
 
 import java.io.Serializable;
-import java.util.List;
-import java.util.Map;
 
 /**
  * 用户表
@@ -14,14 +12,14 @@ import java.util.Map;
  * @email 
  * @date 2018-08-31 15:01:21
  */
-public interface TSysUserService extends IService<TSysUserEntity> {
+public interface UserService extends IService<UserEntity> {
 
     /**
      * @Description 说明：
      * @param loginName 登录账号
      * @return
      */
-    TSysUserEntity login(String loginName);
+    UserEntity login(String loginName);
     
     /**
      * 更新密码
@@ -36,9 +34,9 @@ public interface TSysUserService extends IService<TSysUserEntity> {
 	 * @param entity
 	 * @return
 	 */
-	boolean modifyUserInfo(TSysUserEntity entity);
+	boolean modifyUserInfo(UserEntity entity);
 	
 
-    TSysUserEntity selectById(Serializable id);
+    UserEntity selectById(Serializable id);
 }
 

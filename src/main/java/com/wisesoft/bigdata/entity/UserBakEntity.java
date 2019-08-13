@@ -1,12 +1,10 @@
-package com.wisesoft.plat.entity;
+package com.wisesoft.bigdata.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.Date;
 
 /**
  * 用户表
@@ -15,9 +13,9 @@ import java.util.Date;
  * @email 
  * @date 2018-08-31 15:01:21
  */
-@TableName("t_sys_user")
+@TableName("user")
 @Data
-public class TSysUserEntity implements Serializable {
+public class UserBakEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**

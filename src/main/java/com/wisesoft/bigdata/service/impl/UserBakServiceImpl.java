@@ -1,30 +1,30 @@
-package com.wisesoft.plat.service.impl;
+package com.wisesoft.bigdata.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.wisesoft.annotation.DataSource;
-import com.wisesoft.plat.dao.TSysUserDao;
-import com.wisesoft.plat.entity.TSysUserEntity;
-import com.wisesoft.plat.service.TSysUserService;
+import com.wisesoft.bigdata.dao.UserBakDao;
+import com.wisesoft.bigdata.entity.UserBakEntity;
+import com.wisesoft.bigdata.service.UserBakService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 
 
-@Service("tSysUserService")
-@DataSource(name="plat")
-public class TSysUserServiceImpl extends ServiceImpl<TSysUserDao, TSysUserEntity> implements TSysUserService {
+@Service("userBakService")
+@DataSource(name="bigdata")
+public class UserBakServiceImpl extends ServiceImpl<UserBakDao, UserBakEntity> implements UserBakService {
 	
 	@Override
-	public TSysUserEntity login(String loginName) {
-		TSysUserEntity i = baseMapper.selectOne(new QueryWrapper<TSysUserEntity>().eq("login_name", loginName));
+	public UserBakEntity login(String loginName) {
+		UserBakEntity i = baseMapper.selectOne(new QueryWrapper<UserBakEntity>().eq("login_name", loginName));
 		return i;
 	}
 
 	@Override
 	public boolean updatePassWord(String userId, String newPassWord) {
-		TSysUserEntity entity = new TSysUserEntity();
+		UserBakEntity entity = new UserBakEntity();
 		entity.setId(userId);
 		entity.setPasswd(newPassWord);
 		return super.updateById(entity);
@@ -32,13 +32,13 @@ public class TSysUserServiceImpl extends ServiceImpl<TSysUserDao, TSysUserEntity
 
 	@Override
 	@Transactional
-	public boolean save(TSysUserEntity entity) {
+	public boolean save(UserBakEntity entity) {
 //		int i = 1/0;
 		return super.save(entity);
 	}
 	
 	@Override
-	public boolean modifyUserInfo(TSysUserEntity entity) {
+	public boolean modifyUserInfo(UserBakEntity entity) {
 		if(entity == null) {
 			return false;
 		}
@@ -46,7 +46,7 @@ public class TSysUserServiceImpl extends ServiceImpl<TSysUserDao, TSysUserEntity
 	}
 
 	@Override
-	public TSysUserEntity selectById(Serializable id) {
+	public UserBakEntity selectById(Serializable id) {
 		return baseMapper.selectById(id);
 	}
 	
