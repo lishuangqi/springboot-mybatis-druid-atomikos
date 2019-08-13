@@ -11,6 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * 多文件加载的例子使用的验证接口
  * <p>
@@ -76,6 +78,16 @@ public class TestController {
         userBakService.save(userBakEntity);
 //        int i =1/0;
         return "ok";
+
+    }
+    @GetMapping("/getData1")
+    public List<UserEntity> getData1() {
+        return userService.selectByAll();
+
+    }
+    @GetMapping("/getData2")
+    public List<UserBakEntity> getData2() {
+        return userBakService.selectByAll();
 
     }
 }

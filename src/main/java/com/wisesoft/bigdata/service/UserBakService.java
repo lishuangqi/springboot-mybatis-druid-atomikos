@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.wisesoft.bigdata.entity.UserBakEntity;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 用户表
@@ -38,5 +39,7 @@ public interface UserBakService extends IService<UserBakEntity> {
 
 
 	UserBakEntity selectById(Serializable id);
+
+	List<UserBakEntity> selectByAll();
 }
 

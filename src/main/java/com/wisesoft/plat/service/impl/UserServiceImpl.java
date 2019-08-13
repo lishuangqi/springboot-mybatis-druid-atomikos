@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
+import java.util.List;
 
 
 @Service("userService")
@@ -49,5 +50,9 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
 	public UserEntity selectById(Serializable id) {
 		return baseMapper.selectById(id);
 	}
-	
+
+	@Override
+	public List<UserEntity> selectByAll(){
+		return baseMapper.selectList(null);
+	}
 }
