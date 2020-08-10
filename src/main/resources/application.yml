@@ -4,7 +4,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.xa.DruidXADataSource
     druid:
-      bigdata:  #数据源1
+      db1:  #数据源1
         driverClassName: com.mysql.cj.jdbc.Driver
         url: jdbc:mysql://localhost:3306/adb1?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
         username: root
@@ -28,7 +28,7 @@ spring:
           #login-username: admin
           #login-password: admin
         filters: stat,wall,log4j2
-      plat:  #数据源2
+      db2:  #数据源2
         driverClassName: com.mysql.cj.jdbc.Driver
         url: jdbc:mysql://localhost:3306/adb2?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
         username: root
@@ -52,30 +52,6 @@ spring:
           #login-username: admin
           #login-password: admin
         filters: stat,wall,log4j2
-#      plat:  #数据源oracle
-#        driverClassName: oracle.jdbc.OracleDriver
-#        url: jdbc:oracle:thin:@192.168.100.233:1521:oracle
-#        username: qcs
-#        password: manager
-#        initialSize: 10
-#        maxActive: 100
-#        minIdle: 10
-#        maxWait: 60000
-#        poolPreparedStatements: true
-#        maxPoolPreparedStatementPerConnectionSize: 20
-#        timeBetweenEvictionRunsMillis: 60000
-#        minEvictableIdleTimeMillis: 300000
-#        validationQuery: SELECT 1 FROM DUAL
-#        validationQueryTimeout: 10000
-#        testWhileIdle: true
-#        testOnBorrow: false
-#        testOnReturn: false
-#        statViewServlet:
-#          enabled: true
-#          urlPattern: /druid/*
-#          #login-username: admin
-#          #login-password: admin
-#        filters: stat,wall,log4j2
     #jta相关参数配置
   jta:
     log-dir: classpath:tx-logs
@@ -87,7 +63,7 @@ spring:
 mybatis-plus:
   mapper-locations: classpath*:mapper/**/*.xml
   #实体扫描，多个package用逗号或者分号分隔
-  typeAliasesPackage: com.wisesoft.*.entity
+  typeAliasesPackage: com.lishuangqi.*.entity
   typeEnumsPackage: com.baomidou.springboot.db.entity.enums
   global-config:
     #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
@@ -115,5 +91,5 @@ logging:
   level:
     root: info
     com.atomikos: debug
-  path: logs/
+  path: ./logs/
   file: atomikos.log
